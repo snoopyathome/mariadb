@@ -1,4 +1,6 @@
-FROM alpine:3.7
+FROM alpine:3.10
+
+MAINTAINER Ianus IT GmbH <info@ianus-it.de>
 
 RUN apk add --update mariadb mariadb-client &&\
     mkdir -p /var/lib/mysql &&\
@@ -9,4 +11,4 @@ RUN apk add --update mariadb mariadb-client &&\
 
 USER mysql
 
-CMD ["mysqld_safe"]
+CMD ["mysqld", "--max-allowed-packet=128M", "--innodb_log_file_size=512M", "--bind-address=0.0.0.0", "--skip-networking=0"]
