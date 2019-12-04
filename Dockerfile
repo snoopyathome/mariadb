@@ -1,7 +1,5 @@
 FROM alpine:3.10
 
-MAINTAINER Ianus IT GmbH <info@ianus-it.de>
-
 RUN apk add --update mariadb mariadb-client &&\
     mkdir -p /var/lib/mysql &&\
     mkdir -p /run/mysqld &&\
